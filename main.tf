@@ -5,6 +5,14 @@ provider "google" {
 
 }
 
+terraform {
+  backend "gcs" {
+    bucket = "thudarum2015"
+    prefix = "terraform/state"
+    
+  }
+}
+
 resource "google_compute_instance_template" "web_template" {
   name         = "web-template"
   machine_type = "e2-micro"
